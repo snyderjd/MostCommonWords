@@ -1,0 +1,11 @@
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords.deps.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords.runtimeconfig.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords.runtimeconfig.dev.json
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords.dll
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/bin/Debug/netcoreapp3.0/MostCommonWords.pdb
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/obj/Debug/netcoreapp3.0/MostCommonWords.csprojAssemblyReference.cache
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/obj/Debug/netcoreapp3.0/MostCommonWords.AssemblyInfoInputs.cache
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/obj/Debug/netcoreapp3.0/MostCommonWords.AssemblyInfo.cs
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/obj/Debug/netcoreapp3.0/MostCommonWords.dll
+/home/snyderjosephd/nss/workspace/csharp/exercises/MostCommonWords/obj/Debug/netcoreapp3.0/MostCommonWords.pdb
