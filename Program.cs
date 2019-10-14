@@ -16,12 +16,10 @@ namespace MostCommonWords
 
             string lowerCaseStory = nightOcean.Story.ToLower();
 
-            // char[] goodChars = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-            //      'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '};"
-
             List<char> goodChars = new List<char>(){
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-                 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '
+                 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+                 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
             };
 
             // Create a new string with only the letters and spaces
@@ -35,18 +33,35 @@ namespace MostCommonWords
                 }
             }
 
-            // Console.WriteLine(wordsOnly);
+            string wordsWithCaps = "";
+            foreach(char character in nightOcean.Story)
+            {
+                if (goodChars.Contains(character))
+                {
+                    wordsWithCaps += character;
+                }
+            }
+
+
+            // Console.WriteLine(wordsWithCaps);
 
             // Split the wordsOnly string on a space to get a list of strings
 
             string[] allWords = wordsOnly.Split(" ");
+            string[] allWordsWithCaps = wordsWithCaps.Split(" ");
 
-            foreach(string word in allWords)
+            foreach(string word in allWordsWithCaps)
             {
                 // Console.WriteLine(word);
             }
 
-            var wordCount = allWords.GroupBy(word => word, (key, value) => new WordCount 
+            var wordCount = allWords.GroupBy(word => word, (key, value) => new WordCount
+                {
+                    Word = key,
+                    Count = value.Count()
+                }).OrderByDescending(result => result.Count).ToList();
+
+            var wordCountWithCaps = allWordsWithCaps.GroupBy(word => word, (key, value) => new WordCount
                 {
                     Word = key,
                     Count = value.Count()
@@ -54,15 +69,44 @@ namespace MostCommonWords
 
             foreach(WordCount item in wordCount)
             {
-                Console.WriteLine($"{item.Word}: {item.Count}");
+                // Console.WriteLine($"{item.Word}: {item.Count}");
             }
 
-            // Print out the top ten words
+            // Print out counts for capitalized words
+            foreach(WordCount item in wordCountWithCaps)
+            {
+                // Console.WriteLine($"{item.Word}: {item.Count}");
+            
+            }
+
+            // Iterate over the top ten words from the lowercase list. Then for each top lowercase word, iterate over the 
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine($"{wordCount[i].Word}: {wordCount[i].Count}");
-            }
+                List<string> topWords = new List<string>();
+                foreach (string originalWord in allWordsWithCaps)
+                {
 
+                    if (wordCount[i].Word == originalWord.ToLower())
+                    {
+                        topWords.Add(originalWord);
+                    }
+
+                }
+
+                var topWordCount = topWords.GroupBy(word => word, (key, value) => new WordCount
+                {
+                    Word = key,
+                    Count = value.Count()
+                }).OrderByDescending(result => result.Count).ToList();
+
+                foreach (WordCount result in topWordCount)
+                {
+                    Console.Write($"{result.Word}: {result.Count}, ");
+                }
+
+                Console.WriteLine();
+
+            }
 
         }
     }
